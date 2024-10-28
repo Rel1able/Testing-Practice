@@ -1,4 +1,4 @@
-import { capitalize, reverseString, calculator } from "./index.js";
+import { capitalize, reverseString, calculator, caesarCipher, analyzeArray } from "./index.js";
 
 test("tests", () => {
     expect(capitalize("tests")).toBe("Tests");
@@ -26,4 +26,26 @@ test("12/4", () => {
 
 test("22/0", () => {
     expect(calculator.divide(22, 0)).toBe(Infinity);
+})
+
+test("xyz, 3", () => {
+    expect(caesarCipher("xyz", 3)).toBe("abc");
+})
+
+test("XYZ, 3", () => {
+    expect(caesarCipher("XYZ", 4)).toBe("BCD");
+})
+
+test("HeLLo, 3", () => {
+    expect(caesarCipher("HeLLo", 3)).toBe("KhOOr");
+})
+
+test("Hello, World!, 3", () => {
+    expect(caesarCipher("Hello, World!", 3)).toBe("Khoor, Zruog!");
+})
+
+test("analyze array", () => {
+    expect(analyzeArray([1, 8, 3, 4, 2, 6])).toEqual(
+        { average: 4, min: 1, max: 8, length: 6 }
+    )
 })
